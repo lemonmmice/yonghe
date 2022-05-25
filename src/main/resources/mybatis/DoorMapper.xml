@@ -1,0 +1,22 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper
+        PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+        "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.hbnu.dao.DoorMapper">
+<!--    查询所有门店信息-->
+    <select id="findAllDoor" resultType="com.hbnu.pojo.Door">
+        select * from tb_door
+    </select>
+    <insert id="addDoor">
+        insert into tb_door(name,tel,addr) value (#{name},#{tel},#{addr});
+    </insert>
+   <delete id="deleteDoor">
+       delete  from tb_door where id=#{id}
+   </delete>
+    <select id="findDoorById" resultType="com.hbnu.pojo.Door">
+        select * from tb_door where  id=#{id}
+    </select>
+    <update id="updateDoorById">
+        update tb_door set name =#{name}, tel=#{tel}, addr=#{addr} where id =#{id}
+    </update>
+</mapper>
